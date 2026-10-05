@@ -1,0 +1,171 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f3f4f6;
+    color: #222222;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 32px;
+    background: #ffffff;
+    border: 1px solid #d8dce2;
+}
+
+section {
+    margin-bottom: 32px;
+}
+
+h1,
+h2 {
+    margin-top: 0;
+    color: #1f2937;
+}
+
+h1 {
+    margin-bottom: 12px;
+    font-size: 28px;
+}
+
+h2 {
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+p {
+    margin-top: 0;
+}
+
+.intro {
+    margin-bottom: 32px;
+    color: #4b5563;
+}
+
+/* Комбинация :hover и ::before (как в задании) */
+section:hover::before {
+    content: "Hovered: ";
+    display: block;
+    color: red;
+    font-size: 14px;
+}
+
+/* ::before для заголовков */
+h1::before,
+h2::before {
+    content: "★ ";
+    color: #145da0;
+}
+
+/* ::after для абзацев, кроме .intro */
+p:not(.intro)::after {
+    content: " ✓";
+    color: #15803d;
+}
+
+/* Декоративная полоска под h2 */
+h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 4px;
+    margin-top: 6px;
+    background: #145da0;
+    border-radius: 2px;
+}
+
+button {
+    padding: 10px 16px;
+    background: #145da0;
+    color: #ffffff;
+    border: 0;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* :not() исключает отключённую кнопку из hover-стиля */
+button:not(:disabled):hover {
+    color: #facc15;
+}
+
+button:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+input {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    padding: 8px 10px;
+    border: 2px solid #cfd5dd;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #15803d;
+}
+
+input::placeholder {
+    color: #c2410c;
+    font-size: 14px;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+ul {
+    margin: 0 0 16px;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    position: relative;
+    padding: 8px 12px;
+}
+
+li:nth-child(odd) {
+    background: #e8edf3;
+}
+
+li:nth-child(even) {
+    background: #dcfce7;
+}
+
+li:nth-child(odd)::before {
+    content: "● ";
+    color: #145da0;
+}
+
+li:nth-child(even)::before {
+    content: "◆ ";
+    color: #15803d;
+}
+
+li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 12px;
+    bottom: 0;
+    left: 12px;
+    height: 1px;
+    background: #cfd5dd;
+}
